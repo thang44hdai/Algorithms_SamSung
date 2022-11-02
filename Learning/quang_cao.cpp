@@ -14,7 +14,6 @@ int main()
     map<int, int> mp;
     for (auto &i : a)
         cin >> i;
-
     for (auto i : a)
         if (!mp[i])
         {
