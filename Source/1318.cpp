@@ -62,6 +62,7 @@ int main()
         for (int i = 1; i <= n; i++)
             for (int j = 1; j <= n; j++)
                 cin >> a[i][j];
+        ok[1][1] = 1;
         Try();
         if (sol.size() == 0)
             cout << -1;
