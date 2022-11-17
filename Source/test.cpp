@@ -1,13 +1,10 @@
-#include <stdio.h>
+#include<stdio.h>
 #include<math.h>
-float a1, b1, c1, a2, b2, c2;
-
+ 
 int main()
 {
-    a1=2.01;
-    printf("\n %d", (int)a1);    
-    a1=ceil(a1);
-    printf("\n%d", (int)a1);
-
+    long long a, b, c;
+    scanf("%lld%lld%lld", &a, &b, &c);
+    printf("%.0f",ceil((double)(c-b)/(a-b)));
     return 0;
 }
