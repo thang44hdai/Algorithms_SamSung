@@ -1,20 +1,27 @@
 #include <bits/stdc++.h>
 #pragma GCC optize("Ofast")
 using namespace std;
-int n, k;
-int a[25];
+int n, m;
+int a[50];
 vector<int> vt;
-set<vector<int>> sol;
-void Try(int i = 1, int sum = 0)
+bool check = false;
+void print()
 {
-    if (sum > k)
+    cout << "[";
+    for (int i = 0; i < vt.size() - 1; i++)
+        cout << vt[i] << " ";
+    cout << vt[vt.size() - 1] << "]";
+}
+void Try(int i = 0, int sum = 0)
+{
+    if (sum > m)
         return;
-    else if (sum == k)
+    if (sum == m)
     {
-        sol.insert(vt);
-        return;
+        check = true;
+        print();
     }
-    for (int j = i; j <= n; j++)
+    for (int j = i; j < n; j++)
     {
         vt.push_back(a[j]);
         Try(j, sum + a[j]);
@@ -24,28 +31,22 @@ void Try(int i = 1, int sum = 0)
 int main()
 {
     ios_base::sync_with_stdio(false);
-    cin.tie(0);
-    cout.tie(0);
+    cin.tie(NULL);
+    cout.tie(NULL);
     int t;
     cin >> t;
     while (t--)
     {
-        cin >> n >> k;
-        for (int i = 1; i <= n; i++)
+        check = false;
+        cin >> n >> m;
+        for (int i = 0; i < n; i++)
             cin >> a[i];
         Try();
-        for (auto i : sol)
-        {
-            vector<int> a = i;
-            cout << "[";
-            for (int j = 0; j < a.size() - 1; j++)
-                cout << a[j] << " ";
-            cout << a[a.size() - 1] << "] ";
-        }
-        if (sol.size() == 0)
+        if (check == false)
             cout << -1;
-        sol.clear();
+        vt.clear();
         cout << "\n";
     }
+
     return 0;
 }
