@@ -2,7 +2,7 @@
 #pragma GCC optize("Ofast")
 using namespace std;
 #define ll long long
-int n, k;
+ll n, k;
 ll f[93];
 void Set()
 {
